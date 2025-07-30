@@ -1,5 +1,6 @@
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import { Card } from "@/components/ui/card";
+import { Link } from "react-router-dom";
 
 // Generate 70 wards with realistic names
 const generateWards = () => {
@@ -57,14 +58,19 @@ const WardsList = () => {
                 {wards.map((ward) => (
                   <TableRow 
                     key={ward.wardNumber}
-                    className="hover:bg-muted/50 transition-colors"
+                    className="hover:bg-muted/50 transition-colors cursor-pointer"
                   >
-                    <TableCell className="text-center font-medium text-primary">
-                      {ward.wardNumber}
-                    </TableCell>
-                    <TableCell className="text-foreground">
-                      {ward.wardName}
-                    </TableCell>
+                    <Link 
+                      to={`/ward/${ward.wardNumber}`}
+                      className="contents"
+                    >
+                      <TableCell className="text-center font-medium text-primary">
+                        {ward.wardNumber}
+                      </TableCell>
+                      <TableCell className="text-foreground">
+                        {ward.wardName}
+                      </TableCell>
+                    </Link>
                   </TableRow>
                 ))}
               </TableBody>
