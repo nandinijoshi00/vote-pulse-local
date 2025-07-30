@@ -1,6 +1,8 @@
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import { Card } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
+import { BarChart3, Vote } from "lucide-react";
 
 // Generate 70 wards with realistic names
 const generateWards = () => {
@@ -52,25 +54,39 @@ const WardsList = () => {
                   <TableHead className="font-semibold text-foreground">
                     Ward Name
                   </TableHead>
+                  <TableHead className="w-40 text-center font-semibold text-foreground">
+                    Opinion Poll
+                  </TableHead>
                 </TableRow>
               </TableHeader>
               <TableBody>
                 {wards.map((ward) => (
                   <TableRow 
                     key={ward.wardNumber}
-                    className="hover:bg-muted/50 transition-colors cursor-pointer"
+                    className="hover:bg-muted/50 transition-colors"
                   >
-                    <Link 
-                      to={`/ward/${ward.wardNumber}`}
-                      className="contents"
-                    >
-                      <TableCell className="text-center font-medium text-primary">
+                    <TableCell className="text-center font-medium text-primary">
+                      <Link to={`/ward/${ward.wardNumber}`} className="hover:underline">
                         {ward.wardNumber}
-                      </TableCell>
-                      <TableCell className="text-foreground">
+                      </Link>
+                    </TableCell>
+                    <TableCell className="text-foreground">
+                      <Link to={`/ward/${ward.wardNumber}`} className="hover:underline">
                         {ward.wardName}
-                      </TableCell>
-                    </Link>
+                      </Link>
+                    </TableCell>
+                    <TableCell className="text-center">
+                      <Link to={`/poll/${ward.wardNumber}`}>
+                        <Button 
+                          size="sm" 
+                          variant="outline"
+                          className="flex items-center gap-2 hover:bg-primary hover:text-primary-foreground transition-colors"
+                        >
+                          <Vote className="w-4 h-4" />
+                          Vote Now
+                        </Button>
+                      </Link>
+                    </TableCell>
                   </TableRow>
                 ))}
               </TableBody>
