@@ -1,4 +1,5 @@
 import Header from "@/components/Header";
+import CategorySidebar from "@/components/CategorySidebar";
 import NewsSection from "@/components/NewsSection";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
@@ -13,9 +14,9 @@ const Index = () => {
       {/* Hero Section with Municipal Wards Button */}
       <section className="py-12 bg-gradient-primary text-primary-foreground">
         <div className="container mx-auto px-4 text-center">
-          <h1 className="text-5xl font-bold mb-6">Municipal News & Elections</h1>
+          <h1 className="text-5xl font-bold mb-6">News Portal</h1>
           <p className="text-xl mb-8 opacity-90">
-            Stay informed with the latest municipal news and election updates
+            Stay informed with the latest news and updates
           </p>
           
           {/* Highlighted Municipal Wards Button */}
@@ -33,7 +34,13 @@ const Index = () => {
         </div>
       </section>
 
-      <NewsSection />
+      <div className="flex">
+        <CategorySidebar />
+        <div className="flex-1">
+          <NewsSection />
+        </div>
+      </div>
+      
       <Footer />
     </div>
   );

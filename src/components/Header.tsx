@@ -17,19 +17,15 @@ const Header = () => {
           </div>
           
           <nav className="hidden md:flex items-center space-x-8">
-            <a href="#polls" className="text-foreground hover:text-primary transition-colors">
-              Current Polls
+            <a href="/category" className="text-foreground hover:text-primary transition-colors font-medium">
+              Category
             </a>
-            <a href="#trending" className="text-foreground hover:text-primary transition-colors">
-              Trending
+            <a href="/e-paper" className="text-foreground hover:text-primary transition-colors font-medium">
+              E-Paper
             </a>
-            <a href="#about" className="text-foreground hover:text-primary transition-colors">
-              About
+            <a href="/opinions" className="text-foreground hover:text-primary transition-colors font-medium">
+              Opinions
             </a>
-            <Button variant="outline" size="sm">
-              <Users className="w-4 h-4 mr-2" />
-              Submit Poll
-            </Button>
           </nav>
         </div>
       </div>
